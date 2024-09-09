@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>homework</title>
 </head>
+
 <body>
-    <p>
-        rofl
-    </p>
+    <script>
+        do {
+            name   = "Full name: " + prompt("Enter your full name: ");
+            gender = "Gender: "    + prompt("Enter your gender: ");
+            age    = "Age: "       + parseInt(prompt("Enter your age: "));
+            email  = "Email: "     + prompt("Enter your email: ");
+
+            full_string = name + "\n" + gender + "\n" + age + "\n" + email + "\n\n" + "It`s right?";
+        }
+        while (!(confirm(full_string)))
+        alert("Thank you!");
+
+
+        do{
+            n = prompt("Enter a 6-digit number: ");
+        }
+        while(n.length != 6)
+
+        first_nums  = parseInt(n[0]) + parseInt(n[1]) + parseInt(n[2]);
+        second_nums = parseInt(n[3]) + parseInt(n[4]) + parseInt(n[5]);
+        if(first_nums == second_nums){
+            alert("Lucky number");
+        }
+        else{
+            alert("Bad number");
+        }
+    </script>
 </body>
+
 </html>
