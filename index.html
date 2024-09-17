@@ -9,32 +9,57 @@
 
 <body>
     <script>
-        do {
-            name   = "Full name: " + prompt("Enter your full name: ");
-            gender = "Gender: "    + prompt("Enter your gender: ");
-            age    = "Age: "       + parseInt(prompt("Enter your age: "));
-            email  = "Email: "     + prompt("Enter your email: ");
+        let x = parseInt(prompt("Enter a num: "));
+        if(x % 2 == 0) { alert("Even number"); }  
+        else if(r < w) { alert("Odd number");  }
 
-            full_string = name + "\n" + gender + "\n" + age + "\n" + email + "\n\n" + "It`s right?";
-        }
-        while (!(confirm(full_string)))
-        alert("Thank you!");
+        let q = parseInt(prompt("Enter first num: "));
+        let w = parseInt(prompt("Enter second num: "));
+        q < w ? alert(q) : alert(w);
 
+        let e = parseInt(prompt("Enter a number: "));
+        if(e < 0) { alert("-"); }
+        else if(e > 0) { alert("+"); }
+        else { alert("0"); }
 
-        do{
-            n = prompt("Enter a 6-digit number: ");
-        }
-        while(n.length != 6)
+        let r = parseInt(prompt("Enter first num: "));
+        let t = parseInt(prompt("Enter second num: "));
+        let y = parseInt(prompt("Enter third num: "));
+        alert(Math.max(r, Math.max(t, y))); 
 
-        first_nums  = parseInt(n[0]) + parseInt(n[1]) + parseInt(n[2]);
-        second_nums = parseInt(n[3]) + parseInt(n[4]) + parseInt(n[5]);
-        if(first_nums == second_nums){
-            alert("Lucky number");
-        }
-        else{
-            alert("Bad number");
-        }
-    </script>
+        let u = parseInt(prompt("Enter first num: "));
+        let i = parseInt(prompt("Enter second num: "));
+        let o = parseInt(prompt("Choose: 1) a + b; 2) a - b; 3) a * b; 4) a / b."));
+        if(o == 1)     { alert(u + i); }
+        else if(o == 2){ alert(u - i); }
+        else if(o == 3){ alert(u * i); }
+        else if(o == 4){ alert(u / i); }
+        else           { alert("Incorrect input."); }
+
+        let p = parseInt( prompt("Enter a num: "));
+        if( p >= 1 && p <= 30) 
+            { alert("Number between 1 and 30."); }
+        else           
+            { alert("Number not between 1 and 30."); }
+
+        let a = parseInt( prompt("Enter a first num: "));
+        let s = parseInt( prompt("Enter a second num: "));
+        if(a % s == 0) {alert("is multiple.");}
+        else { alert("Is not multiple.") };
+
+        let d = parseInt(prompt("Enter a num: "));
+        alert(Math.abs(d));
+
+        var sum;
+        let g = prompt("Enter a num: ");
+        if     (g.length == 1){ sum = parseInt(g[0]); }
+        else if(g.length == 2){ sum = parseInt(g[0]) + parseInt(g[1]); }
+        else if(g.length == 3){ sum = parseInt(g[0]) + parseInt(g[1]) + parseInt(g[2]); }
+        else if(g.length == 4){ sum = parseInt(g[0]) + parseInt(g[1])  + parseInt(g[2]) + parseInt(g[3]); }
+        alert(sum);
+
+        //11 задание успешно выполнил на паре
+        </script>
 </body>
 
 </html>
