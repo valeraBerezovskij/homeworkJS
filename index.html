@@ -1,52 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homework</title>
+    <title>Document</title>
+    <script src="func.js"></script>
 </head>
-
 <body>
     <script>
-        let num = parseInt(prompt("Enter number: "));
-        let from = 1, to = 100;
-        let middle = Math.round((from + to) / 2);
-        let choice = 0;
-
-        do {
-            choice = parseInt(prompt("Your number is " + middle + "?" + "\n1) Yes\n2) Less\n3) More"));
-            if(choice == 1){ break; }
-            else if(choice == 2){ to = middle; }
-            else if(choice == 3){ from = middle; }
-            middle = Math.round((from + to) / 2);
-        } while (true);
-
-        let v = "";
-        for (let i = 0; i < 100; i+=3) {
-            v += i; v += " ";
-        }
-        alert(v);
-
-        let inp = parseInt(prompt("Enter num for factorial: "));
-        let f = 1, i = 1;
-        do{ 
-            f += f * i;
-            i++;    
-        }while(i < inp)
-        alert(f);
-
-        let number, sum = 0;
-        let info = "Choose:\n1. Miles -> Kilometers\n2. Kilometers -> Miles.\n3.Exit\n";
-        do {
-            number = parseInt(prompt(info));
-            let amount =  parseFloat(prompt("Enter: ", 1)); 
-
-            if     (number == 1){ alert(amount * 1.609 + " km."); }
-            else if(number == 2){ alert(amount / 1.609 + " M."); }
-            else if(number == 3){ break; }
-        } while (number != 3);
+        simpleFunction();
+        document.write("Куб числа " + 3 + " равен " + cube(3) + "<br>");
+        document.write("Куб числа " + 5 + " равен " + cube(5) + "<br>");
+        document.write(cube);
+        simpleFunction = null;
+        //simpleFunction(); // ошибка
     </script>
 </body>
-
 </html>
