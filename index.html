@@ -8,12 +8,16 @@
 </head>
 <body>
     <script>
-        simpleFunction();
-        document.write("Куб числа " + 3 + " равен " + cube(3) + "<br>");
-        document.write("Куб числа " + 5 + " равен " + cube(5) + "<br>");
-        document.write(cube);
-        simpleFunction = null;
-        //simpleFunction(); // ошибка
+        let q = ["Sky is red?", "Are you a human?", "2 + 2 = 4?", "Yes is No?", "Water is wet?"];
+        let a = [];
+        for(let i = 0; i < q.length; i++){
+            let ans = prompt(q[i] + "\n" + "1 - Yes  2 - No");
+            a[i] = (ans == "1") ? true : false;
+        }
+
+        for(let i = 0; i < q.length; i++){
+            alert(q[i] + "\n" + a[i]);
+        }
     </script>
 </body>
 </html>
