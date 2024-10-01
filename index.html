@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="func.js"></script>
 </head>
+
 <body>
     <script>
-        let q = ["Sky is red?", "Are you a human?", "2 + 2 = 4?", "Yes is No?", "Water is wet?"];
-        let a = [];
-        for(let i = 0; i < q.length; i++){
-            let ans = prompt(q[i] + "\n" + "1 - Yes  2 - No");
-            a[i] = (ans == "1") ? true : false;
+        let full_name = prompt("Enter your full name: ");
+        let errorSymbols = "1234567890.?!@#$%^&*()_+=-";
+
+        if (full_name.indexOf(errorSymbols) == -1) {
+            alert("Entered name includes incorrect symbols.");
         }
 
-        for(let i = 0; i < q.length; i++){
-            alert(q[i] + "\n" + a[i]);
-        }
+        let address = "http://www.ufa.com.ua/utilities/hdd/out.php?sort=2";
+        document.write("Address: " + address + '<br><br>');
+
+        let request = address.slice(address.indexOf("?") + 1);
+        address = address.replace(request, '');
+
+        let protocol = address.substr(0, address.indexOf("/"));
+        address = address.replace(protocol, '').replace("?", "").replace("//", "");
+
+        let host = address.substr(0, address.indexOf("/"));
+        address = address.replace(host, '');
+
+        address = address.replace("/", '');
+        let file_name = address
+            .split("")
+            .reverse()
+            .join("")
+            .substr(0, address.indexOf("/") - 2)
+            .split("")
+            .reverse()
+            .join("");
+        let path = address.replace(file_name, "");
+
+        document.write("Protocol: " + protocol + '<br>');
+        document.write("Host: "       + host + '<br>');
+        document.write("Path: " + path + '<br>');
+        document.write("File name: " + file_name + '<br>');
+        document.write("Request: " + request + '<br>');
     </script>
 </body>
+
 </html>
