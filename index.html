@@ -4,47 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>I WORK HERE</title>
+    <link rel="stylesheet" href="style.css">
     <script src="func.js"></script>
 </head>
 
 <body>
+
+    <div class="backBlock">
+        <div class="blueBlock">
+            <p>What is Lorem Ipsum?</p>
+        </div>
+        <div class="blueBlock">
+            <p>Why do we use it?</p>
+        </div>
+        <div class="textBlock" id="lorem">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a perferendis perspiciatis. Vitae et
+                quidem iusto eligendi aspernatur iste distinctio quae similique, ducimus quisquam, pariatur hic illo
+                quod sed amet.</p>
+        </div>
+        <div class="blueBlock">
+            <p>Where does it come from?</p>
+        </div>
+        <div class="blueBlock">
+            <p>Where can i get some?</p>
+        </div>
+    </div>
     <script>
-        let full_name = prompt("Enter your full name: ");
-        let errorSymbols = "1234567890.?!@#$%^&*()_+=-";
-
-        if (full_name.indexOf(errorSymbols) == -1) {
-            alert("Entered name includes incorrect symbols.");
+        function show() {
+            counter++;
+            let block = document.getElementById("lorem");
+            if (flag) {
+                block.style.color = color[index];
+                block.style.backgroundColor = color[color.length - 1 - index];
+                index++;
+                if (index > 5)
+                    index = 0;
+            }
+            flag = !flag;
         }
-
-        let address = "http://www.ufa.com.ua/utilities/hdd/out.php?sort=2";
-        document.write("Address: " + address + '<br><br>');
-
-        let request = address.slice(address.indexOf("?") + 1);
-        address = address.replace(request, '');
-
-        let protocol = address.substr(0, address.indexOf("/"));
-        address = address.replace(protocol, '').replace("?", "").replace("//", "");
-
-        let host = address.substr(0, address.indexOf("/"));
-        address = address.replace(host, '');
-
-        address = address.replace("/", '');
-        let file_name = address
-            .split("")
-            .reverse()
-            .join("")
-            .substr(0, address.indexOf("/") - 2)
-            .split("")
-            .reverse()
-            .join("");
-        let path = address.replace(file_name, "");
-
-        document.write("Protocol: " + protocol + '<br>');
-        document.write("Host: "       + host + '<br>');
-        document.write("Path: " + path + '<br>');
-        document.write("File name: " + file_name + '<br>');
-        document.write("Request: " + request + '<br>');
+    </script>
+    <script>
+        "use strict";
+        let flag = false;
+        let index = 0;
+        let counter = 0;
+        let color = new Array("red", "yellow", "green", "magenta", "blue", "cyan");
+        setInterval("show()", 500);
     </script>
 </body>
 
