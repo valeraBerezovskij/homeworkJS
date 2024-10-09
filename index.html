@@ -4,75 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 5</title>
-
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-    </style>
+    <title>Document</title>
 </head>
 
 <body>
-    <div>
-        <p id="first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, numquam unde. Aut dolorum in, quia
-            numquam
-            error recusandae est odio nesciunt ut illum blanditiis illo minima, officiis mollitia eaque fugit.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum corrupti sapiente, qui eius fuga nisi. Sequi
-            quibusdam sapiente deserunt fuga dolorem commodi perspiciatis, cum soluta possimus quaerat. Labore, eveniet
-            iusto.</p>
-        <a href="https://rozetka.com.ua/ua/">Rozetka</a> |
-        <a href="https://rozetka.com.ua/ua/">Rozetka</a>
+    <div class="divOut">
+        <div class="divIn">
+            <div>
+                <h2>What is Lorem Ipsum?</h2>
+                <button>x [remove]</button>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis earum id officiis laboriosam
+                assumenda obcaecati enim. Minima fuga delectus ratione omnis, quod earum, commodi facere qui ea ut
+                cupiditate!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis earum id officiis laboriosam
+                assumenda obcaecati enim. Minima fuga delectus ratione omnis, quod earum, commodi facere qui ea ut
+                cupiditate!</p>
+        </div>
+        <div class="divIn">
+            <div>
+                <h2>Why do we use it?</h2>
+                <button>x [remove]</button>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis earum id officiis laboriosam
+                assumenda obcaecati enim. Minima fuga delectus ratione omnis, quod earum, commodi facere qui ea ut
+                cupiditate!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis earum id officiis laboriosam
+                assumenda obcaecati enim. Minima fuga delectus ratione omnis, quod earum, commodi facere qui ea ut
+                cupiditate!</p>
+        </div>
+        <div class="divIn">
+            <div>
+                <h2>Where does it come from?</h2>
+                <button>x [remove]</button>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis earum id officiis laboriosam
+                assumenda obcaecati enim. Minima fuga delectus ratione omnis, quod earum, commodi facere qui ea ut
+                cupiditate!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis earum id officiis laboriosam
+                assumenda obcaecati enim. Minima fuga delectus ratione omnis, quod earum, commodi facere qui ea ut
+                cupiditate!</p>
+        </div>
     </div>
 
-    <input type="radio" name="answer" checked /> Yes
-    <input type="radio" name="answer" /> No
-
-    <ul class="my-list">
-        <li>List Item 1-1</li>
-        <li>List Item 2-1</li>
-        <li>List Item 3-1</li>
-        <li>List Item 4-1</li>
-        <li>List Item 5-1</li>
-    </ul>
-
-    <article>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est fugit natus sapiente laborum esse. Aperiam eum
-        illum fuga laborum alias consectetur, quibusdam nisi quidem aliquam nulla, quae vero expedita fugiat.
-    </article>
-
-    <ul class="my-list">
-        <li>List Item 1-2</li>
-        <li>List Item 2-2</li>
-        <li>List Item 3-2</li>
-        <li>List Item 4-2</li>
-        <li>List Item 5-2</li>
-    </ul>
-
     <script>
-        /* 
-        Задание:
-        Поменяйте вызовы методов getElementById, getElementsByName, getElementsByTagName, getElementsByClassName 
-        на вызовы методов querySelector или querySelectorAll так, чтобы поведение сценария не изменилось.
-        */
+        "use strict";
+        let divOut = document.querySelector(".divOut")
+        divOut.style.setProperty("width",            "900px");
+        divOut.style.setProperty("background-color", "antiquewhite");
 
-        let paragraph = document.querySelector("#first");
-        paragraph.style.border = "2px solid red";
-
-        let radioButtons = document.querySelectorAll("answer");
-        for (const button of radioButtons) {
-            button.checked = !button.checked;
+        let headersDivIn = document.querySelectorAll("h2");
+        for(const elem of headersDivIn){
+            elem.style.setProperty("display",     "inline-block");
+            elem.style.setProperty("margin-left", "20px");
+            elem.style.setProperty("font-size",   "22px");
         }
 
-        let listItems = document.querySelectorAll("#li");
-        for (const item of listItems) {
-            item.style.margin = "2px";
-            item.style.border = "2px solid green";
+        let buttons = document.querySelectorAll("button");
+        for(const elem of buttons){
+            elem.style.setProperty("float",        "right");
+            elem.style.setProperty("margin-right", "30px");
+            elem.style.setProperty("margin-top",   "20px");
         }
 
-        let lists = document.querySelectorAll(".my-list");
-        for (const list of lists) {
-            list.style.border = "2px solid blue";
+        let paragraphs = document.getElementsByTagName("p");
+        for(const elem of paragraphs){
+            elem.style.setProperty("margin",         "0px 20px 0px 20px");
+            elem.style.setProperty("padding-bottom", "15px");
+            elem.style.setProperty("border-bottom",  "1px solid black");
+            elem.style.setProperty("font-family",    "'Times New Roman', Times, serif");
+            elem.style.setProperty("font-size",      "14px");
         }
     </script>
 </body>
