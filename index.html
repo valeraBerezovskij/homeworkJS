@@ -1,99 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Классы</title>
+    <title>Document</title>
 </head>
-
 <body>
-    <script>
-        class Cillindr {
-
-            constructor(radius, height) {
-                this.radius = radius;
-                this.height = height;
-            }
-
-            output() {
-                console.log("Radius: ", this.radius);
-                console.log("Height: ", this.height);
-            }
-
-            input() {
-                this.radius = parseInt(prompt('Enter radius: '));
-                this.height = parseInt(prompt('Enter height: '));
-            }
-
-            getVolume() {
-                return 3.14159 * this.radius * this.radius * this.height;
-            }
-
-            getSurfaceArea() {
-                return 2 * 3.14159 * this.radius * (this.radius + this.height);
-            }
-
-            getRadius() { return this.radius; }
-            getHeight() { return this.height; }
-
-            setRadius(radius) { return this.radius = radius; }
-            setHeight(height) { return this.height = height; }
-        }
-
-        let r1 = new Rect(10, 20);
-        let r2 = new Rect(15, 9);
-
-        console.log("r1 area " + r1.getArea());
-        console.log("r1 perimeter " + r1.getPerimeter());
-
-        console.log("r2 area " + r2.getArea());
-        console.log("r2 perimeter " + r2.getPerimeter());
-
-        class Triangle {
-            constructor(a, b, c) {
-                this.a = a;
-                this.b = b;
-                this.c = c;
-            }
-
-            input() {
-                this.a = parseInt(prompt('Enter a: '));
-                this.b = parseInt(prompt('Enter b: '));
-                this.c = parseInt(prompt('Enter c: '));
-            }
-
-            output() {
-                console.log("A = ", this.a);
-                console.log("B = ", this.b);
-                console.log("C = ", this.c);
-            }
-
-            getArea() {
-                let p = (this.a + this.b + this.c) / 2;
-                return Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
-            }
-
-            getPerimeter() {
-                return this.a + this.b + this.c;
-            }
-
-            setA(a) { this.a = a; }
-            setA(b) { this.b = b; }
-            setA(c) { this.c = c; }
-        }
-
-        let t1 = new Triangle(4, 5, 6);
-        let t2 = new Triangle(3, 4, 5);
-        t1.input();
-        console.log(t1.a);
-        console.log("t1 area " + t1.getArea());
-        console.log("t1 perimeter " + t1.getPerimeter());
-
-        console.log("t2 area " + t2.getArea());
-        console.log("t2 perimeter " + t2.getPerimeter());
-    </script>
+    
 </body>
-
 </html>

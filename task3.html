@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 03</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .car-info {
+            display: inline-block;
+            margin: 10px 0 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="car-info" id="placeholder1"></div>
+    <div class="car-info" id="placeholder2"></div>
+    <div class="car-info" id="placeholder3"></div>
+
+    <script>
+        class Car {
+            #image;
+            #manufacturer;
+            #html;
+
+            constructor(image_, manufacturer_) {
+                this.#image = image_;
+                this.#manufacturer = manufacturer_;
+                this.#html = `<img src="images/${this.#image}" /><br />Производитель: ${this.#manufacturer}<br />`;
+            }
+
+            get html() {
+                if (this.#html === undefined) {
+                    this.#html = "";
+                } else {
+                    return this.#html;
+                }
+            }
+
+            get image() {
+                if (this.image === undefined) {
+                    this.image = "";
+                } else {
+                    return this.image;
+                }
+            }
+
+            get manufacturer() {
+                if (this.image === undefined) {
+                    this.image = "";
+                } else {
+                    return this.image;
+                }
+            }
+
+            set image(image_) {
+                this.image = image_;
+            }
+
+            set manufacturer(manufacturer_) {
+                this.manufacturer = manufacturer_;
+            }
+        }
+
+
+        let car1 = new Car("audi-a6-250.jpg", "Audi");
+        let car2 = new Car("jaguar-x-type-250.jpg", "Jaguar");
+        let car3 = new Car("porsche-carrera-911-250.jpg", "Porsce");
+
+        let placeholder1 = document.querySelector("#placeholder1");
+        let placeholder2 = document.querySelector("#placeholder2");
+        let placeholder3 = document.querySelector("#placeholder3");
+
+        placeholder1.innerHTML = car1.html;
+        placeholder2.innerHTML = car2.html;
+        placeholder3.innerHTML = car3.html;
+    </script>
+</body>
+
+</html>
