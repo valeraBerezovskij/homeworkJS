@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style2.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <form>
+            <div class="colordivs">
+                <div class="colordiv">
+                    <p class="color-name">R</p>
+                    <input type="text" name="color" id="R">
+                </div>
+                <div class="colordiv">
+                    <p class="color-name">G</p>
+                    <input type="text" name="color" id="G">
+                </div>
+                <div class="colordiv">
+                    <p class="color-name">B</p>
+                    <input type="text" name="color" id="B">
+                </div>
+            </div>
+            <button type="button" onclick="addColor()">Add Color</button>
+        </form>
+    </section>
+    <section>
+        <div id="colors">
+
+        </div>
+    </section>
+
+    <script>
+        function addColor() {
+            let colors_section = document.getElementById("colors");
+            let r = parseInt(document.getElementById("R").value);
+            let g = parseInt(document.getElementById("G").value);
+            let b = parseInt(document.getElementById("B").value);
+
+            let div_text_color = document.createElement("div");
+            div_text_color.style.setProperty("width", "270px");
+            div_text_color.style.setProperty("height", "40px");
+            div_text_color.style.setProperty("margin-top", "20px");
+            div_text_color.style.setProperty("margin-left", "30px");
+            div_text_color.style.setProperty("border", "1px solid black");
+            div_text_color.style.setProperty("display", "flex");
+            div_text_color.style.setProperty("align-items", "center");
+            div_text_color.style.setProperty("justify-content", "space-between");
+
+            let div_text = document.createElement("p");
+            div_text.style.setProperty("margin", "0px");
+            
+            div_text.style.setProperty("padding", "0px");
+            div_text.style.setProperty("padding-right", "20%");
+            div_text.style.setProperty("display", "inline-block");
+            div_text.textContent = `RGB r:${r} g:${g} b:${b}`;
+
+            let color = document.createElement("div");
+            color.style.setProperty("width", "40px");
+            color.style.setProperty("height", "40px");
+            color.style.setProperty("display", "inline-block");
+            color.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+            div_text_color.appendChild(color);
+            div_text_color.appendChild(div_text);
+            colors_section.appendChild(div_text_color);
+        }
+    </script>
+</body>
+
+</html>

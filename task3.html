@@ -3,84 +3,138 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 03</title>
-
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .car-info {
-            display: inline-block;
-            margin: 10px 0 10px 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="car-info" id="placeholder1"></div>
-    <div class="car-info" id="placeholder2"></div>
-    <div class="car-info" id="placeholder3"></div>
+    <section>
+        <form>
+            <div class="formrow">
+                <div>
+                    <label for="firstname">Firstname:</label>
+                    <input type="text" name="firstname">
+                </div>
+                <div>
+                    <label for="lastname">Lastname:</label>
+                    <input type="text" name="lastname">
+                </div>
+            </div>
+            <div class="formrow">
+                <div>
+                    <label for="birthday">Birthday:</label>
+                    <input type="date" name="birthday">
+                </div>
+                <div>
+                    Gender:
+                    <input type="radio" name="gender" id="Male"> Male
+                    <input type="radio" name="gender" id="Female"> Female
+                </div>
+            </div>
+
+            <div class="formrow">
+                <div>
+                    <label for="countries">Country:</label>
+                    <select name="countries" id="countries" required>
+                        <option value="Ukraine" selected>Ukraine</option>
+                        <option value="America">America</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Russia">Russia</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="cities">City:</label>
+                    <select name="cities" id="cities" required>
+                        <option value="Odessa" selected>Odessa</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Toronto">Toronto</option>
+                        <option value="Moscow">Moscow</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="formrow">
+                <div>
+                    Skills:
+                    <input type="checkbox" name="languageHtml" id="HTML"> HTML
+                    <input type="checkbox" name="languageCss" id="CSS"> CSS
+                    <input type="checkbox" name="languageJs" id="JS"> JS
+                    <input type="checkbox" name="languagePhp" id="PHP"> PHP
+                    <input type="checkbox" name="languageC++" id="C++"> C++
+                    <input type="checkbox" name="languageJava" id="JAVA"> JAVA
+                    <input type="checkbox" name="languageC#" id="C#"> C#
+                </div>
+            </div>
+            <div class="formrow">
+                <button onclick="fillArray()" type="button">Save</button>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <p>Result:</p>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Birthday</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Skills</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
 
     <script>
-        class Car {
-            #image;
-            #manufacturer;
-            #html;
-
-            constructor(image_, manufacturer_) {
-                this.#image = image_;
-                this.#manufacturer = manufacturer_;
-                this.#html = `<img src="images/${this.#image}" /><br />Производитель: ${this.#manufacturer}<br />`;
+        //css was written by chatGPT
+        let users = [
+            {
+                firstname: "",
+                lastname: "",
+                birthday: "",
+                gender: "",
+                country: "",
+                city: "",
+                skills: []
             }
+        ];
 
-            get html() {
-                if (this.#html === undefined) {
-                    this.#html = "";
-                } else {
-                    return this.#html;
-                }
+        function getSelectedLangs() {
+            let langs = document.querySelectorAll('input[type="checkbox"]');
+            let res = [];
+            for (const lang of langs) {
+                if (lang.checked) { res.push(lang.id); }
             }
-
-            get image() {
-                if (this.image === undefined) {
-                    this.image = "";
-                } else {
-                    return this.image;
-                }
-            }
-
-            get manufacturer() {
-                if (this.image === undefined) {
-                    this.image = "";
-                } else {
-                    return this.image;
-                }
-            }
-
-            set image(image_) {
-                this.image = image_;
-            }
-
-            set manufacturer(manufacturer_) {
-                this.manufacturer = manufacturer_;
-            }
+            return res;
         }
 
+        function fillArray() {
+            const name = document.getElementsByName("firstname")[0].value;
+            const lastname = document.getElementsByName("lastname")[0].value;
+            const date = document.getElementsByName("birthday")[0].value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const country = document.getElementsByName("countries")[0].value;
+            const city = document.getElementsByName("cities")[0].value;
+            const skills = getSelectedLangs();
 
-        let car1 = new Car("audi-a6-250.jpg", "Audi");
-        let car2 = new Car("jaguar-x-type-250.jpg", "Jaguar");
-        let car3 = new Car("porsche-carrera-911-250.jpg", "Porsce");
-
-        let placeholder1 = document.querySelector("#placeholder1");
-        let placeholder2 = document.querySelector("#placeholder2");
-        let placeholder3 = document.querySelector("#placeholder3");
-
-        placeholder1.innerHTML = car1.html;
-        placeholder2.innerHTML = car2.html;
-        placeholder3.innerHTML = car3.html;
+            let newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${lastname}</td>
+                <td>${date}</td>
+                <td>${gender}</td>
+                <td>${country}</td>
+                <td>${city}</td>
+                <td>${skills}</td>
+            `;
+            document.querySelector('#userTable tbody').append(newRow);
+        }
     </script>
 </body>
 
